@@ -1,0 +1,25 @@
+/*
+ * -------------------------------------
+ * Theme Name: deco.agency
+ * Theme URI: http://deco.agency/
+ * Author: Deco Agency Team
+ * Author URI: http://deco.agency/
+ * Description: Custom theme special for deco.agency
+ * Version: 1.0
+ * -------------------------------------
+ */
+//	Style
+//
+@import "base/vars";
+@import "libs/reset";
+@import "libs/swiper.min";
+@import "libs/tingle.min";
+@import "base/mixins";
+@import "base/fonts";
+@import "components/icons";
+@import "base/grid";
+@import "base/global-elements";
+@import "base/typography";
+@import "components/header";
+@import "components/footer";
+@import "pages/main";

@@ -1,0 +1,25 @@
+@font-face {
+ font-family: 'iconFont';
+ src:url('../fonts/iconFont.eot');
+ src:url('../fonts/iconFont.eot') format('embedded-opentype'),
+ url('../fonts/iconFont.ttf') format('truetype'),
+ url('../fonts/iconFont.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'OpenSans-CondensedLight';
+  src: url('../fonts/OpenSans-CondensedLight.eot');
+  src: url('../fonts/OpenSans-CondensedLight?#iefix') format('embedded-opentype'),
+  url('../fonts/OpenSans-CondensedLight.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+// Font Variables
+
+$fontMain: 'PT Sans', sans-serif;
+$fontOpenSans: 'OpenSans-CondensedLight', sans-serif;

@@ -1,0 +1,251 @@
+.c-header {
+ flex-grow: 0;
+ @include r(1000) {
+	display: flex;
+	flex-direction: column;
+ }
+ &__top {
+	@include r(576) {
+	 text-align: center;
+	}
+ }
+ &__tel {
+	font-family: $fontOpenSans;
+	font-size: 25px;
+	position: relative;
+	&::before {
+	 content: '';
+	 height: 1px;
+	 width: 100%;
+	 background-color: $grey;
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 transform: scale(0);
+	 transition: transform .3s;
+	}
+	&:hover {
+	 &::before {
+		transform: scale(1);
+	 }
+	}
+ }
+ &__form-popup {
+	letter-spacing: 0.6px;
+	font-size: 24px;
+	font-weight: bold;
+	position: relative;
+	&::before {
+	 content: '';
+	 background: url(../img/del/underscore_03.png) 0 0/cover;
+	 height: 2px;
+	 width: 100%;
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 transform: scale(1);
+	 transition: transform .3s;
+	}
+	&:hover {
+	 &::before {
+		transform: scale(0);
+	 }
+	}
+ }
+}
+
+.c-header {
+ &-top {
+	padding-top: 45px;
+	padding-bottom: 45px;
+	@include r(1000) {
+	 order: 2;
+	}
+ }
+ &-bottom {
+	@include r(1000) {
+	 order: 1;
+	}
+ }
+}
+
+.c-navigation {
+ @include r(1000) {
+	transform: translateY(-100%);
+	opacity: 0;
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: $grey;
+	z-index: 10;
+	transition: transform .3s, opacity .3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+ }
+}
+
+.c-menu-toggle {
+ width: 100px;
+ height: 100px;
+ margin-left: auto;
+ position: relative;
+ cursor: pointer;
+ background: rgba(255, 255, 255, .4);
+ border-radius: 5px;
+ display: none;
+ @include r(1000) {
+	display: block;
+ }
+ span {
+	transition: .25s ease-in-out;
+	display: block;
+	background: #566973;
+	border-radius: 2px;
+ }
+ &:hover {
+	background: rgba(255, 255, 255, .8);
+ }
+}
+
+.c-hamburger {
+ pointer-events: none;
+ position: absolute;
+ height: 100%;
+ width: 100%;
+ span {
+	width: 60px;
+	height: 4px;
+	position: relative;
+	top: 24px;
+	left: 20px;
+	margin: 10px 0;
+	&:nth-child(1) {
+	 transition-delay: .5s;
+	}
+	&:nth-child(2) {
+	 transition-delay: .625s;
+	}
+	&:nth-child(3) {
+	 transition-delay: .75s;
+	}
+ }
+}
+
+.c-cross {
+ pointer-events: none;
+ position: absolute;
+ height: 100%;
+ width: 100%;
+ transform: rotate(45deg);
+ span {
+	&:nth-child(1) {
+	 height: 0;
+	 width: 4px;
+	 position: absolute;
+	 top: 10%;
+	 left: 48px;
+	 transition-delay: 0s;
+	}
+	&:nth-child(2) {
+	 width: 0;
+	 height: 4px;
+	 position: absolute;
+	 left: 10%;
+	 top: 48px;
+	 transition-delay: .25s;
+	}
+ }
+}
+
+.c-navigation-menu {
+ padding-top: 10px;
+ padding-bottom: 10px;
+ &.active {
+	.c-menu-toggle {
+	 z-index: 11;
+	 position: fixed;
+	 right: 10px;
+	 top: 10px;
+	 .c-hamburger {
+		span {
+		 width: 0;
+		 &:nth-child(1) {
+			transition-delay: 0s;
+		 }
+		 &:nth-child(2) {
+			transition-delay: .125s;
+		 }
+		 &:nth-child(3) {
+			transition-delay: .25s;
+		 }
+		}
+	 }
+	 .c-cross {
+		span {
+		 &:nth-child(1) {
+			height: 80%;
+			transition-delay: .625s;
+		 }
+		}
+		span {
+		 &:nth-child(2) {
+			width: 80%;
+			transition-delay: .375s;
+		 }
+		}
+	 }
+	}
+	.c-navigation {
+	 @include r(1000) {
+		transform: translateY(0);
+		opacity: 1;
+	 }
+	}
+ }
+}
+
+.c-navigation-body {
+ padding: 5px 0;
+ color: #fff;
+ font-size: 25px;
+ letter-spacing: 0.8px;
+ text-align: center;
+ li {
+	display: inline;
+	padding: 0 20px;
+	border-right: 1px solid #fff;
+	@include r(1000) {
+	 border-right: none;
+	}
+	&:last-of-type {
+	 border-right: none;
+	}
+	a {
+	 position: relative;
+	 &::before {
+		content: '';
+		height: 1px;
+		width: 100%;
+		background-color: #fff;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		transform: scale(0);
+		transition: transform .3s;
+	 }
+	 &:hover {
+		&::before {
+		 transform: scale(1);
+		}
+	 }
+	}
+ }
+ @include r(1000) {
+	flex-direction: column;
+	display: flex;
+ }
+}
+

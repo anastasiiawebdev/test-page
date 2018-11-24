@@ -1,0 +1,88 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin triangle($direction, $size: 6px, $color: #222) {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  @if ($direction == 'up') {
+    border-bottom: $size solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  } @else if ($direction == 'down') {
+    border-top: $size solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  } @else if ($direction == 'left') {
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-right: $size solid $color;
+  } @else if ($direction == 'right') {
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+@mixin bp($point) {
+  @if $point == xl {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  } @else if $point == lg {
+    @media (max-width: 960px) {
+      @content;
+    }
+  } @else if $point == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $point == sm {
+    @media (max-width: 600px) {
+      @content;
+    }
+  } @else if $point == xs {
+    @media (max-width: 400px) {
+      @content;
+    }
+  }
+}
+
+//-----------------media------------------------
+// width
+@mixin r($width) {
+  @media only screen and (max-width: $width+ "px") {
+    @content
+  }
+
+}
+
+@mixin rm($width) {
+  @media only screen and (min-width: $width+ "px") {
+    @content
+  }
+
+}
+
+@mixin rmm($width1,$width2) {
+  @media only screen and (min-width: $width1+ "px") and (max-width: $width2+"px") {
+    @content
+  }
+
+}
+
+// height
+@mixin rh($height) {
+  @media only screen and (max-height: $height + "px") {
+    @content
+  }
+
+}
+
